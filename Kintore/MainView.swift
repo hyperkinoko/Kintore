@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainView: UIViewController {
     var menu: [SingleMotion]!
@@ -41,6 +42,20 @@ class MainView: UIViewController {
 //        }
     }
     
+    func utter(str: String) {
+        
+        let speech = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: str)//読み上げる文字
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")//読み上げの言語
+        utterance.rate = 0.4 //読み上げの速度
+        utterance.pitchMultiplier = 1.2 //声の高さ
+        utterance.preUtteranceDelay = 0 //読み上げまでの待機時間
+        utterance.postUtteranceDelay = 0 //読んだあとの待機時間
+        
+        speech.speak(utterance) //発話
+        print(str)
+    }
+    
     func timerInterrupt(_ timer: Timer) {
         count += 1
         if displayUpdate() <= 0 {
@@ -57,6 +72,9 @@ class MainView: UIViewController {
     }
     
     func displayUpdate() -> Int {
+        if count == 1 {
+            utter(str: menu[nowIndex].name)
+        }
 //        print(nowIndex)
 //        print(menu[nowIndex].name)
         self.nameLabel.text = menu[nowIndex].name
