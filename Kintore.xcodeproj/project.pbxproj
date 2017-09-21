@@ -13,6 +13,7 @@
 		B66239661F720A43003B3739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B66239651F720A43003B3739 /* Assets.xcassets */; };
 		B66239691F720A43003B3739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66239671F720A43003B3739 /* LaunchScreen.storyboard */; };
 		B66239711F72126C003B3739 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66239701F72126C003B3739 /* MainView.swift */; };
+		B66239731F7254B7003B3739 /* AMotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66239721F7254B7003B3739 /* AMotionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B66239681F720A43003B3739 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B662396A1F720A43003B3739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B66239701F72126C003B3739 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B66239721F7254B7003B3739 /* AMotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMotionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B66239671F720A43003B3739 /* LaunchScreen.storyboard */,
 				B662396A1F720A43003B3739 /* Info.plist */,
 				B66239701F72126C003B3739 /* MainView.swift */,
+				B66239721F7254B7003B3739 /* AMotionCell.swift */,
 			);
 			path = Kintore;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				B66239611F720A43003B3739 /* ViewController.swift in Sources */,
 				B66239711F72126C003B3739 /* MainView.swift in Sources */,
 				B662395F1F720A43003B3739 /* AppDelegate.swift in Sources */,
+				B66239731F7254B7003B3739 /* AMotionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

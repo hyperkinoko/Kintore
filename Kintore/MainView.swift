@@ -10,12 +10,11 @@ import UIKit
 import AVFoundation
 
 class MainView: UIViewController {
-    var menu: [SingleMotion]!
+    var menu: SingleMenu!
     var timer: Timer?
     var count: Int = 0
     var nowIndex: Int = 0
     var repeatCount: Int = 0
-    var repeatValue: Int = 20
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -23,6 +22,8 @@ class MainView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = menu.name
         
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                      target: self,
@@ -61,10 +62,10 @@ class MainView: UIViewController {
         if displayUpdate() <= 0 {
             count = 0
             nowIndex += 1
-            if nowIndex >= menu.count {
+            if nowIndex >= menu.motions.count {
                 repeatCount += 1
                 nowIndex = 0
-                if repeatCount >= repeatValue {
+                if repeatCount >= menu.numberOfRepeat {
                     timer.invalidate()
                 }
             }
@@ -73,12 +74,12 @@ class MainView: UIViewController {
     
     func displayUpdate() -> Int {
         if count == 1 {
-            utter(str: menu[nowIndex].name)
+            utter(str: menu.motions[nowIndex].name)
         }
 //        print(nowIndex)
 //        print(menu[nowIndex].name)
-        self.nameLabel.text = menu[nowIndex].name
-        let time = menu[nowIndex].time
+        self.nameLabel.text = menu.motions[nowIndex].name
+        let time = menu.motions[nowIndex].time
 //        print(count)
         self.timeLabel.text = String(count)
         self.setLabel.text = String(repeatCount)
@@ -90,6 +91,12 @@ class MainView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func didMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            timer?.invalidate()
+        }
+    }
 
     /*
     // MARK: - Navigation
